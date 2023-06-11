@@ -1,0 +1,133 @@
+// тк мы к ним обращаемся везде ниже
+@import "utils/vars";
+@import "utils/reset";
+
+html {
+  color: $mainFontColor;
+  font-size: $mainFontSize;
+  height: 100%;
+  line-height: $mainLineHeight;
+  @media screen and (max-width: $desktopWidth) {
+    font-size: 16px;
+  }
+  @media screen and (max-width: $tableWidth) {
+    font-size: 15px;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    font-size: 14px;
+  }
+}
+
+body {
+  background-color: #f7f7f7;
+  font-family: $mainFont;
+  font-size: $mainFontSize;
+  -webkit-font-smoothing: antialiased;
+  font-weight: $mainFontWeight;
+  margin: 0;
+  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+input,
+textarea,
+select,
+button {
+  border: 1px solid $border-base;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul,
+li {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+footer, // also footer if footer without section
+section,
+.section {
+  padding: 40px 0;
+  position: relative;
+  @media screen and (max-width: $desktopWidth) {
+    padding: 36px 0;
+  }
+  @media screen and (max-width: $desktopWidth) {
+    padding: 28px 0;
+  }
+  @media screen and (max-width: $desktopWidth) {
+    padding: 20px 0;
+  }
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  min-height: 100vh;
+
+  &-personal {
+    text-align: center;
+  }
+}
+
+.wrapper-content {
+  display: flex;
+  flex-direction: column;
+  margin-top: 80px; // if header is fixed do mt: headerHeight
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.container {
+  flex: 0 0 auto;
+  margin: 0 auto;
+  max-width: $lgDesktopWidth;
+  position: relative;
+  width: 100%;
+  @media screen and (max-width: $lgDesktopWidth) {
+    padding: 0 16px;
+  }
+  @media screen and (max-width: $smDesktopWidth) {
+    max-width: $tableWidth;
+  }
+  @media screen and (max-width: $tableWidth) {
+    max-width: $smTableWidth;
+  }
+  @media screen and (max-width: $smTableWidth) {
+    max-width: $phoneWidth;
+  }
+  @media screen and (max-width: $phoneWidth) {
+    max-width: $smPhoneWidth;
+  }
+}
+
+.view-sm {
+  max-width: 700px;
+  &.isCenter {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+@import "./common/_common";
+@import "./helpers/_helpers";
+@import "helpers/theme";
