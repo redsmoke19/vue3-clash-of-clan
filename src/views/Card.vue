@@ -1,6 +1,6 @@
 <script>
-import items from "@/mocks/items.js";
-import CardStats from "@/common/components/CardStats.vue";
+import items from "@/mocks/items.json";
+import CardStats from "@/modules/card/CardStats.vue";
 export default {
   name: "CardItem",
   components: {
@@ -13,15 +13,21 @@ export default {
     };
   },
 
+  async created() {
+    const alias = this.$route.params.itemAlias;
+    const item = alias && items.find((el) => el.alias === alias);
+
+    if (!item) {
+      return await this.$router.push({ name: "404" });
+    }
+
+    this.item = JSON.parse(JSON.stringify(item));
+  },
+
   computed: {
     cardImage() {
       return `${require(`@/assets/img/${this.item.img}`)}`;
     },
-  },
-
-  created() {
-    const alias = this.$route.params.itemAlias;
-    this.item = items.find((el) => el.alias === alias);
   },
 };
 </script>

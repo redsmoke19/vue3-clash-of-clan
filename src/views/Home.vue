@@ -1,7 +1,7 @@
 <script>
-import items from "@/mocks/items.js";
-import UnitCard from "@/modules/card/UnitCard.vue";
-import CardStats from "@/common/components/CardStats.vue";
+import items from "@/mocks/items.json";
+import UnitCard from "@/modules/card/CardUnit.vue";
+import CardStats from "@/modules/card/CardStats.vue";
 import { Carousel, Slide, Navigation } from "vue3-carousel";
 
 export default {
@@ -13,6 +13,7 @@ export default {
     Slide,
     Navigation,
   },
+
   data() {
     return {
       items,
@@ -40,7 +41,7 @@ export default {
           :name="`${card.lvl} lvl`",
           :title="card.title"
           :img-url="card.img"
-          :link="`/${card.alias}`"
+          :link="`/items/${card.alias}`"
         )
           template(#body)
             p {{ card.desc }}
